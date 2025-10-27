@@ -10,16 +10,19 @@ files = list(input_dir.glob("orion-pipeline*.csv"))
 for f in files:
     df = pl.read_csv(f)
 
-    # Removed SourceIP, TCP, ICMP, Country
     df = df.select([
-        "Port", "Traffic", "Packets", "Bytes",
-        "UniqueDests", "UniqueDest24s", "Lat", "Long",
-        "ASN", "EventType"
+        "Port",
+        "Traffic",
+        "Packets",
+        "Bytes",
+        "UniqueDests",
+        "UniqueDest24s",
+        "Lat",
+        "Long",
+        "ASN",
+        "EventType"
     ])
 
-    # Reduce / specify the bit precisions for reduced memory usage. For example,
-    # a port will never be above 65535, so it only needs to be uint16 instead of
-    # uint64.
     df = df.with_columns([
         pl.col("Port").cast(pl.UInt16),
         pl.col("Traffic").cast(pl.UInt8),
@@ -32,6 +35,6 @@ for f in files:
         pl.col("ASN").cast(pl.Int32),
         pl.col("EventType").cast(pl.Utf8)
     ])
-    output_file = output_dir / (f.stem + ".parquet")
 
+    output_file = output_dir / (f.stem + ".parquet")
     df.write_parquet(output_file, compression="zstd")

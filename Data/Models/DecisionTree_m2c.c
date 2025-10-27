@@ -1,5 +1,5 @@
 #include <string.h>
-void score(double * input, double * output) {
+void score_DecisionTree(double * input, double * output) {
     double var0[6];
     if (input[1] <= -0.09411655366420746) {
         if (input[1] <= -0.7023362666368484) {

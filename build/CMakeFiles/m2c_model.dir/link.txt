@@ -1,2 +1,0 @@
-/usr/bin/ar qc libm2c_model.a CMakeFiles/m2c_model.dir/Data/Models/DecisionTree_m2c.c.o
-/usr/bin/ranlib libm2c_model.a
