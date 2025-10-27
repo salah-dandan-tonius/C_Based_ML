@@ -73,4 +73,3 @@ for name in ["DecisionTree", "RandomForest", "LogisticRegression"]:
     print(f"F1: {f1_score(Y_true, Y_pred, average='weighted'):.4f}")
     print(f"Disk size (bytes): {os.path.getsize(onnx_path)}")
     print("-----")
-
