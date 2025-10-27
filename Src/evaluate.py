@@ -50,6 +50,7 @@ def prepare_inputs(df):
             inputs[col] = df[col].to_numpy().astype(np.float32).reshape(-1, 1)
     return inputs
 
+# Memory usage in RAM, not DISK. This is the memory just for the model to be loaded in RAM.
 def memory_usage(func, *args, **kwargs):
     process = psutil.Process(os.getpid())
     mem_before = process.memory_info().rss
@@ -63,7 +64,7 @@ for model_file in os.listdir(model_dir):
         model_path = os.path.join(model_dir, model_file)
         model_name = model_file.replace(".onnx", "")
         
-        disk_size = os.path.getsize(model_path)
+        disk_size = os.path.getsize(model_path) # Get the size on disk
         
         session, mem_used = memory_usage(ort.InferenceSession, model_path)
         

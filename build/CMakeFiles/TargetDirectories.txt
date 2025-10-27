@@ -1,0 +1,4 @@
+/media/flynn/Backup/Desktop/Projects/Merit-Kernel/build/CMakeFiles/m2c_model.dir
+/media/flynn/Backup/Desktop/Projects/Merit-Kernel/build/CMakeFiles/mymodule.dir
+/media/flynn/Backup/Desktop/Projects/Merit-Kernel/build/CMakeFiles/edit_cache.dir
+/media/flynn/Backup/Desktop/Projects/Merit-Kernel/build/CMakeFiles/rebuild_cache.dir

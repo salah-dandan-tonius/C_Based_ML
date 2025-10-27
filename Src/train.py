@@ -49,6 +49,9 @@ models = {
     "LogisticRegression": LogisticRegression(max_iter=1000, random_state=42)
 }
 
+# Creates a list of data types that represent one model input, since ONNX needs that. For example,
+# if the inputs are {Port, Bytes, EventType}, then the variable initial_types = {int, int, str} because
+# because Port is an integer, Bytes is an integer, and EventType is a string (for example, "TCP Backscatter")
 initial_types = []
 for col in X.columns:
     if X[col].dtype == 'object':

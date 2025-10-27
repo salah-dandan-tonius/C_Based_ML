@@ -63,7 +63,7 @@ for model_file in os.listdir(model_dir):
 
         disk_size = os.path.getsize(model_path)
 
-        lib, mem_used = memory_usage(ctypes.CDLL, model_path)
+        lib, mem_used = memory_usage(ctypes.CDLL, model_path) # REMOVE THE MEM USED
         lib.score.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double)]
         lib.score.restype = None
 
@@ -81,7 +81,7 @@ for model_file in os.listdir(model_dir):
         results.append({
             "Model": model_name,
             "Disk_Size_Bytes": disk_size,
-            "Memory_Usage_Bytes": mem_used,
+            #"Memory_Usage_Bytes": mem_used, mem_used shouldn't be there
             "Accuracy": acc,
             "Precision": prec,
             "Recall": rec,
