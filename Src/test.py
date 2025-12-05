@@ -73,3 +73,6 @@ for name in ["DecisionTree", "RandomForest", "LogisticRegression"]:
     print(f"F1: {f1_score(Y_true, Y_pred, average='weighted'):.4f}")
     print(f"Disk size (bytes): {os.path.getsize(onnx_path)}")
     print("-----")
+
+# Note for shereen, this is testing on single file for simplicity. I don't think
+# there is a need to test on the entire month.
